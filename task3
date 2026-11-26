@@ -1,0 +1,33 @@
+#include <iostream>
+#include <clocale>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int a, b, s = 0, k = 0;
+    cout << "Введите цель повторений (20-100): ";
+    cin >> a;
+    if (a < 20 || a > 100)
+    {
+        cout << "Ошибка ввода";
+        return 0;
+    }
+    do
+    {
+        cout << "Введите количество повторений (1-20): ";
+        cin >> b;
+        if (b >= 1 && b <= 20)
+        {
+            s = s + b;
+            k = k + 1;
+        }
+        else
+        {
+            cout << "Недопустимое значение. Повторите ввод." << endl;
+        }
+    } while (s < a);
+    cout << "Количество подходов: " << k << endl;
+    cout << "Итоговое количество повторений: " << s << endl;
+    cout << "Превышение над целью: " << s - a << endl;
+    return 0;
+}
