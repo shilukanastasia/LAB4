@@ -1,0 +1,39 @@
+#include <iostream>
+#include <clocale>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    long long n, m;
+    int k = 0;
+    cout << "Введите натуральное число (1-1000): ";
+    cin >> n;
+    if (n < 1 || n > 1000)
+    {
+        cout << "Ошибка ввода";
+        return 0;
+    }
+    m = n;
+    cout << "Последовательность: " << n;
+    while (n != 1)
+    {
+        if (n % 2 == 0)
+        {
+            n = n / 2;
+        }
+        else
+        {
+            n = 3 * n + 1;
+        }
+        k = k + 1;
+        cout << " " << n;
+        if (n > m)
+        {
+            m = n;
+        }
+    }
+    cout << endl;
+    cout << "Количество преобразований: " << k << endl;
+    cout << "Максимальное число: " << m << endl;
+    return 0;
+}
