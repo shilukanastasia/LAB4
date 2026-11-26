@@ -1,0 +1,46 @@
+#include <iostream>
+#include <clocale>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int n, a, b, s = 0, t = 0, k = 0;
+    long long p, m = 0;
+    cout << "Введите количество тренировок (1-20): ";
+    cin >> n;
+    if (n < 1 || n > 20)
+    {
+        cout << "Ошибка ввода";
+        return 0;
+    }
+    for (int c = 1; c <= n; c++)
+    {
+        cout << "Введите длительность тренировки (1-180): ";
+        cin >> a;
+        if (a < 1 || a > 180)
+        {
+            cout << "Ошибка ввода";
+            return 0;
+        }
+        cout << "Введите средний пульс (50-180): ";
+        cin >> b;
+        if (b < 50 || b > 180)
+        {
+            cout << "Ошибка ввода";
+            return 0;
+        }
+        p = a * (b - 50);
+        s = s + p;
+        t = t + a;
+        if (c == 1 || p > m)
+        {
+            m = p;
+            k = c;
+        }
+    }
+    cout << "Общие очки нагрузки: " << s << endl;
+    cout << "Средняя длительность: " << t * 1.0 / n << endl;
+    cout << "Номер тренировки с наибольшими очками: " << k << endl;
+    cout << "Максимальные очки: " << m << endl;
+    return 0;
+}
